@@ -1,6 +1,6 @@
 # importting python "libraries"
 # other code we can reuse "frameworks"
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect, url_for
 from replit import db
 import random
 
@@ -57,19 +57,33 @@ def book_page():
       book_was_entered=True
     )
   
-
   if request.method == "GET":
     # query = request.form["search"]
     # for k,v in db.items():
     #   if (query in k) or (k in query)
-    return render_template("displayBooks.html",
-    db=db
-  )
+    return render_template(
+      "displayBooks.html",
+      db=db
+    )
+    
+@app.route("/api/v1/books", methods=["DELETE"])
+def delete_book():
+  bid = request.args.get("id")
+  if bid is None:
+    bid = ""
+
+  if request.method == "DELETE":
+    bid_deleted = db.pop(str(bid))
+    return bid_deleted
+
+
 
 @app.route("/search", methods=["GET","POST"])
 def search_page():
   if request.method == "GET":
     return render_template("search.html")
+
+
 
 # if conditional that runs program
 # if the file is being excuted from it's main file source
