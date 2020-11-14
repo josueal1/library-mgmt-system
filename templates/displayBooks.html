@@ -1,0 +1,42 @@
+<!-- displayBooks.html -->
+<!DOCTYPE HTML>
+<html>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js">
+</script>
+
+<body bgcolor="87ceeb">
+<center><h2>Simple Library Management System</h2></center>
+<br>
+
+<table border="2" align="center" cellpadding="5" cellspacing="5">
+
+<tr>
+<th> ISBN </th>
+<th> Title </th>
+<th> Author </th>
+<th> Edition </th>
+<th> Publication </th>
+<th> Button </th>
+</tr>
+
+{% for _ ,book in db.items() %}
+<tr>
+<td> {{book["isbn"]}} </td>
+<td> {{book["title"]}} </td>
+<td> {{book["author"]}} </td>
+<td> {{book["edition"]}} </td>
+<td> {{book["publication"]}} </td>
+<td>
+<button onclick="location.href='/'" data-method="delete"> Delete </button> 
+</td>
+</tr>
+
+{% endfor %}
+
+{% if db == {} %}
+<center> No books found in the library </center>
+{% endif %}
+</table>
+</body>
+</html>
+<br>
