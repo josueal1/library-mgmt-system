@@ -64,7 +64,10 @@ def book_page():
 @app.route("/api/v1/books", methods=["DELETE"])
 def delete_book():
     bid = request.args.get("id")
-    if bid is None:
+    print(bid)
+
+    # if bid not passed in URL or undef
+    if bid is None or bid == "undefined":
         bid = ""
 
     if request.method == "DELETE":
