@@ -53,7 +53,7 @@ def book_page():
         insert(isbn, new_book)
 
         return render_template(
-            "base.html", book=new_book, book_was_entered=True)
+            "insert.html", book=new_book, book_was_entered=True)
 
     if request.method == "GET":
         query = request.args.get("search")
