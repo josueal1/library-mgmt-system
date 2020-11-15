@@ -17,6 +17,7 @@ app = Flask(
 # What happens when the user visits the site
 # We'll serve an HTML page mgmt system
 @app.route('/')
+@app.route('/insert')
 def base_page():
     # Sets the random number
     random_num = random.randint(1, 100000)
@@ -25,7 +26,7 @@ def base_page():
     # the app.route 'listener'
     return render_template(
         # template file path, starting from folder
-        'base.html',
+        'insert.html',
         # Sets the var random_number in the template
         random_number=random_num)
 
@@ -57,7 +58,7 @@ def book_page():
     if request.method == "GET":
         query = request.args.get("search")
         # query may be None, getDB handles
-        return render_template("displayBooks.html", db=getDB(query))
+        return render_template("display.html", db=getDB(query))
 
 
 @app.route("/api/v1/books", methods=["DELETE"])

@@ -1,24 +1,20 @@
-<!DOCTYPE HTML>
-<html>
+{% extends "realbase.html" %}
 
-<body bgcolor="87ceeb">
-	<center>
-		<h2>Simple Library Management System</h2>
-	</center>
-
-	{% if book_was_entered %}
-	<h3 border="2" align="center">
-		<text style="color: green;"> Success!</text>
-		<text>
-			Book information for
-			<p><code>
-  {{book["title"]}},
-  {{book["author"]}},
-  {{book["isbn"]}}
-  </code></p>
-  was inserted!
-  </text>
-</h3>
+{% block component %}
+	
+{% if book_was_entered %}
+  <h3 border="2" align="center">
+    <text style="color: green;"> Success!</text>
+    <text>
+      Book information for:
+      <p><code>
+        {{book["title"]}},
+        {{book["author"]}},
+        {{book["isbn"]}}
+      </code></p>
+      was inserted!
+    </text>
+  </h3>
 {% endif %}
 
 <!--Once the form is submitted, all the form data is forwarded to /books endpoint -->
@@ -55,17 +51,4 @@
 </table>
 </form>
 
-<form action="/books" method="GET">
-<table border="2" align="center" cellpadding="5" cellspacing="5">
-  <input type="submit" value="Display All Books">
-</table>
-</form>
-
-<form action="/search" method="GET">
-<table border="2" align="center" cellpadding="5" cellspacing="5">
-  <input type="submit" value="Search a Book">
-</table>
-</form>
-
-</body>
-</html>
+{% endblock %}

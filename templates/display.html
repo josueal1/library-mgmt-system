@@ -1,0 +1,48 @@
+<!-- displayBooks.html -->
+{% extends "realbase.html" %}
+
+{% block component %}
+<table border="2" align="center" cellpadding="5" cellspacing="5">
+	<tr>
+		<th> ISBN </th>
+		<th> Title </th>
+		<th> Author </th>
+		<th> Edition </th>
+		<th> Publication </th>
+		<th> Button </th>
+	</tr>
+
+	{% for _ ,book in db.items() %}
+	<tr>
+		<td>{{book["isbn"]}}</td>
+		<td> {{book["title"]}} </td>
+		<td> {{book["author"]}} </td>
+		<td> {{book["edition"]}} </td>
+		<td> {{book["publication"]}} </td>
+		<td>
+			<button onclick="deleteBook( {{book['isbn']}} )"> Delete </button> 
+    </td>
+  </tr>
+  {% endfor %}
+
+{% if db == {} %}
+  <center> No books found in the library </center>
+{% endif %}
+
+</table>
+
+<script>
+  // When the user clicks button
+  function deleteBook(bid) {
+    $.ajax({
+      url: `/api/v1/books?id=${bid}`,
+      method: 'DELETE'
+    }).fail(function() {
+      alert( "error" );
+    }).always(function() {
+      location.reload();
+    })
+  }
+</script>
+
+{% endblock %}
