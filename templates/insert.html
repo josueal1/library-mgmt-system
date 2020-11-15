@@ -1,9 +1,9 @@
-{% extends "realbase.html" %}
+{% extends "base.html" %}
 
 {% block component %}
 	
 {% if book_was_entered %}
-  <h3 border="2" align="center">
+  <h4 border="2" align="center">
     <text style="color: green;"> Success!</text>
     <text>
       Book information for:
@@ -14,7 +14,7 @@
       </code></p>
       was inserted!
     </text>
-  </h3>
+  </h4>
 {% endif %}
 
 <!--Once the form is submitted, all the form data is forwarded to /books endpoint -->
