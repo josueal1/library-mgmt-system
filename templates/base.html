@@ -1,14 +1,17 @@
 <!DOCTYPE HTML>
 <html>
-<body bgcolor="87ceeb">
-<center><h2>Simple Library Management System</h2></center>
 
-{% if book_was_entered %}
-<h3 border="2" align="center" > 
-  <text style="color: green;"> Success!</text>
-  <text>
-  Book information for 
-  <p><code>
+<body bgcolor="87ceeb">
+	<center>
+		<h2>Simple Library Management System</h2>
+	</center>
+
+	{% if book_was_entered %}
+	<h3 border="2" align="center">
+		<text style="color: green;"> Success!</text>
+		<text>
+			Book information for
+			<p><code>
   {{book["title"]}},
   {{book["author"]}},
   {{book["isbn"]}}
@@ -58,7 +61,11 @@
 </table>
 </form>
 
-
+<form action="/search" method="GET">
+<table border="2" align="center" cellpadding="5" cellspacing="5">
+  <input type="submit" value="Search a Book">
+</table>
+</form>
 
 </body>
 </html>
