@@ -27,7 +27,7 @@
 			<td> {{book["edition"]}} </td>
 			<td> {{book["publication"]}} </td>
 			<td>
-				<button onclick="deleteBook( {{book['isbn']}} )"> Delete </button>
+				<button onclick="deleteBook('{{book['isbn']}}')"> Delete </button>
 			</td>
 		</tr>
 		{% endfor %}
