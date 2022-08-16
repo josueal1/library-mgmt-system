@@ -30,7 +30,9 @@ def delete(item:'str'):
 def insert(isbn, metadata) -> 'bool':
   # separate isbn and metadata
   try:
-    success_entry = True
+    # TODO separate UPDATE and INSERT logic
+    # if (db[isbn]):
+    #   raise Exception("Book ISBN already exists in DB")
     db[isbn] = metadata
   except Exception as e:
     return False
