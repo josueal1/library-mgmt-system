@@ -2,14 +2,21 @@
 {% extends "base.html" %}
 
 {% block component %}
+<br>
+<center>Enter the title of the book to be searched : </center>
+<br>
+
 <form action="/books" method="get">
-	<br>
-  <center>Enter the title of the book to be searched :
-  <input type="text" name="search" size="48">
-  <br>  
-  <input type="submit" value="submit">
-  <input type="reset" value="Reset">
+  <center>
+    <input type="text" name="search" size="48">
   </center>
+
+  <br>
+
+  <center>
+    <input type="submit" value="submit">
+  </center>
+
   <br>
 </form>
 {% endblock %}
