@@ -12,24 +12,29 @@
 		<th> Button </th>
 	</tr>
 
-	{% for _ ,book in db.items() %}
-	<tr>
-		<td>{{book["isbn"]}}</td>
-		<td> {{book["title"]}} </td>
-		<td> {{book["author"]}} </td>
-		<td> {{book["edition"]}} </td>
-		<td> {{book["publication"]}} </td>
-		<td>
-			<button onclick="deleteBook( {{book['isbn']}} )"> Delete </button> 
-    </td>
-  </tr>
-  {% endfor %}
-
-{% if db == {} %}
-  <center> No books found in the library </center>
-{% endif %}
+	{% if db %}
+		{% for _ ,book in db.items() %}
+		<tr>
+			<td>{{book["isbn"]}}</td>
+			<td> {{book["title"]}} </td>
+			<td> {{book["author"]}} </td>
+			<td> {{book["edition"]}} </td>
+			<td> {{book["publication"]}} </td>
+			<td>
+				<button onclick="deleteBook( {{book['isbn']}} )"> Delete </button>
+			</td>
+		</tr>
+		{% endfor %}
+	{% endif %}
 
 </table>
+
+<br>
+{% if db == {} %}
+	<center> No books found in the library </center>
+{% elif not db  %}
+	<center> Database was not able to be loaded. Please contact developer. </center>
+{% endif %}
 
 <script>
   // When the user clicks button
