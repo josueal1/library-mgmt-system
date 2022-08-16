@@ -26,7 +26,7 @@ def base_page():
     # the app.route 'listener'
     return render_template(
         # template file path, starting from folder
-        'insert.html',
+        'index.html',
         # Sets the var random_number in the template
         random_number=random_num)
 
