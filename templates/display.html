@@ -48,8 +48,6 @@
     $.ajax({
       url: `/api/v1/books?id=${bid}`,
       method: 'DELETE'
-    }).fail(function() {
-      alert( "error" );
     }).always(function() {
       location.reload();
     })
