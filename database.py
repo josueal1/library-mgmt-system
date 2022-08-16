@@ -1,7 +1,7 @@
 from replit import db
 
 def getDB(q=None):
-  if q:
+  if (db and q):
     filtered_db_copy = {}
 
     for k,info in db.items():
