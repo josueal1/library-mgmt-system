@@ -54,7 +54,7 @@ def book_page():
     if request.method == "GET":
         query = request.args.get("search")
         # query may be None, getDB handles
-        return render_template("display.html", db=getDB(query))
+        return render_template("display.html", db=getDB(query), q=query)
 
 
 @app.route("/api/v1/books", methods=["DELETE"])

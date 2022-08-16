@@ -2,6 +2,12 @@
 {% extends "base.html" %}
 
 {% block component %}
+<br><br>
+{% if q %}
+<center color="red"> Results For: "<i>{{q}}</i>" </center>
+<br>
+{% endif %}
+
 <table border="2" align="center" cellpadding="5" cellspacing="5">
 	<tr>
 		<th> ISBN </th>
