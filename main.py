@@ -1,8 +1,7 @@
-# importting python "libraries"
-# other code we can reuse "frameworks"
+# main.py
+
 from flask import Flask, render_template, request
 from database import getDB, delete, insert
-import random
 
 # Create a flask app
 app = Flask(
@@ -19,16 +18,13 @@ app = Flask(
 @app.route('/')
 @app.route('/insert')
 def base_page():
-    # Sets the random number
-    random_num = random.randint(1, 100000)
 
     # base_page function returns an HTML template
     # the app.route 'listener'
     return render_template(
         # template file path, starting from folder
-        'index.html',
-        # Sets the var random_number in the template
-        random_number=random_num)
+        'index.html'
+        )
 
 
 @app.route("/books", methods=["GET", "POST"])
