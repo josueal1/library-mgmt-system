@@ -46,10 +46,10 @@ def book_page():
             "publication": publication
         }
 
-        insert(isbn, new_book)
-
+        success_entry = insert(isbn, new_book)
         return render_template(
-            "insert.html", book=new_book, book_was_entered=True)
+            "index.html", book=new_book, book_was_entered=success_entry
+        )
 
     if request.method == "GET":
         query = request.args.get("search")

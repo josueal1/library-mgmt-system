@@ -27,7 +27,12 @@ def delete(item:'str'):
   return bid_deleted
 
 
-def insert(isbn, metadata):
+def insert(isbn, metadata) -> 'bool':
   # separate isbn and metadata
-  db[isbn] = metadata
-  return metadata
+  try:
+    success_entry = True
+    db[isbn] = metadata
+  except Exception as e:
+    return False
+  else:
+    return True

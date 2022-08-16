@@ -2,9 +2,13 @@
 
 {% block component %}
 	
-{% if book_was_entered %}
+{% if book %}
   <h4 border="2" align="center">
+    {% if book_was_entered %}
     <text style="color: green;"> Success!</text>
+    {% else %}
+    <text style="color: red;"> Error!</text>
+    {% endif %}
     <text>
       Book information for:
       <p><code>
@@ -12,7 +16,11 @@
         {{book["author"]}},
         {{book["isbn"]}}
       </code></p>
-      was inserted!
+      {% if book_was_entered %}
+        was inserted!
+      {% else %}
+        was <text style="color: red;"> NOT</text> inserted!
+      {% endif %}
     </text>
   </h4>
 {% endif %}
